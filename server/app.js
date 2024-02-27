@@ -15,7 +15,7 @@ app.get('/test', (req, res) => {
 io.on('connection', (socket) => {
    // console.log('connection', socket);
 
-    socket.emit('chat', 'Hello world!')    //socket = tar emot
+    socket.emit('chat', 'Hello world!')    
 
     socket.on('chat', (arg) => {
         console.log('incoming chat', arg);
@@ -23,5 +23,5 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(8080); 
+server.listen(process.env.PORT || '8080'); 
 
