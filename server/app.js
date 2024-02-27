@@ -15,7 +15,7 @@ app.get('/test', (req, res) => {
 io.on('connection', (socket) => {
    // console.log('connection', socket);
 
-    socket.emit('chat', 'Hello world!')
+    socket.emit('chat', 'Hello world!')    //socket = tar emot
 
     socket.on('chat', (arg) => {
         console.log('incoming chat', arg);
