@@ -1,4 +1,11 @@
 # gridSocket1
+### Start
+- cd client 
+- cd vite-project 
+- npm i 
+- npm run dev 
+
+### Uppgift
 (Caroline Vårsaga, Jari Leminaho, Fatima Assi, Linda Leminaho)
 
 Gruppövning: Chatrum
