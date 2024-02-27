@@ -1,5 +1,5 @@
 # gridSocket1
-
+(Caroline Vårsaga, Jari Leminaho, Fatima Assi, Linda Leminaho)
 
 Gruppövning: Chatrum
 Med socket.io skall du utveckla ett realtids chattrum FED23D
