@@ -4,11 +4,13 @@ const socket = io('http://orca-app-rblx6.ondigitalocean.app');
 let sendMessage = document.getElementById('sendMessage');
 let sendBtn = document.getElementById('sendBtn');
 let chatList = document.getElementById('chatList'); 
-//let myName = "User";
+let myName = "User";
 
-/* sendBtn.addEventListener('click', () => {
+
+sendBtn.addEventListener('click', () => {
+  let messageObject = { message: sendMessage.value, sender: myName }
   console.log('send chat', sendMessage.value);
-  socket.emit('chat', { message: sendMessage.value, sender: myName }); //skickar meddelande
+  socket.emit('chat', messageObject.message); //skickar meddelande
   socket.emit
   updateChat(sendMessage.value, 'sent');
   sendMessage.value = '';
@@ -19,19 +21,8 @@ socket.on('chat', (arg) => {
   if (arg.sender !== myName) {
     updateChat(arg, 'received');
   }  
-}) */
-
-sendBtn.addEventListener('click', () => {
-  console.log('send chat', sendMessage.value);
-  socket.emit('chat', sendMessage.value); 
-  sendMessage.value = '';
-})
-
-socket.on('chat', (arg) => {
-  console.log('socket', arg);
-  updateChat(arg);
-})
-
+}) 
+ 
 function updateChat(chat, sender) {
   let li = document.createElement('li'); 
   li.innerText = chat; 
@@ -46,4 +37,4 @@ function updateChat(chat, sender) {
   }
   div.appendChild(li);
   chatList.appendChild(div)
-}
+} 

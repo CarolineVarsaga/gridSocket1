@@ -13,16 +13,13 @@ app.get('/test', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-    console.log('connection', socket);
-
     socket.emit('chat', 'Välkommen till chatten! Kom ihåg att alltid skriva snälla saker. :)')  
-    console.log('socket emit', socket.emit);
 
     socket.on('chat', (arg) => {
         console.log('incoming chat', arg);
-        io.emit('chat', arg); 
+       // io.emit('chat', arg); 
+       socket.broadcast.emit('chat', arg); 
     })
 })
 
 server.listen(process.env.PORT || '8080'); 
-
