@@ -24,7 +24,7 @@ sendBtn.addEventListener('click', () => {
   let messageObject = { message: sendMessage.value, sender: myName };
   console.log('send chat', sendMessage.value);
   console.log('sender', messageObject.sender);
-  socket.emit('chat', messageObject); //skickar meddelande
+  socket.emit('chat', messageObject.message); //skickar meddelande
   updateChat(sendMessage.value, 'sent');
   sendMessage.value = '';
 });
