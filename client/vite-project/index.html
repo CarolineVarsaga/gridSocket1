@@ -7,14 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="main.js"></script>
     <title>Quacky Chat</title>
-  </head>
+  </head> 1
 
   <body>
-
     
     <div class="join-container">
-      <input id="nameInput" class="name-input" type="text" placeholder="Vem är du?">
-      <button id="joinBtn" class="join-btn btn">Gå vidare</button>
+      <form class="login-form" id="loginForm">
+        <input id="nameInput" class="inputfield name-input" type="text" placeholder="Användarnamn">
+        <input id="passwordInput" class="inputfield password-input" type="password" placeholder="Lösenord">
+        <button id="joinBtn" class="join-btn btn">Logga in</button>
+        <button id="newUserBtn" class="new-user-btn">Inte medlem? Skapa konto</button>
+      </form>
+
+      <form class="new-user-form" id="newUserForm">
+        <input id="newEmailInput" class=" inputfield new-email-input" type="email" placeholder="E-post">
+        <input id="newNameInput" class="inputfield new-name-input" type="text" placeholder="Användarnamn">
+        <input id="newPasswordInput" class="inputfield new-password-input" type="password" placeholder="Lösenord">
+        <button id="createBtn" class="create-btn btn">Skapa konto</button>
+      </form>
+
     </div>
 
     <div class="chatrooms-container">
