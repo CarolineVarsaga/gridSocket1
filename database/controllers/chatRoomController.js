@@ -17,3 +17,8 @@ const getAllChatRooms = asyncHandler(async (req, res) => {
     console.log(getChatRooms);
   } catch (error) {}
 });
+
+module.exports = {
+  createChatRoom,
+  getAllChatRooms,
+};
