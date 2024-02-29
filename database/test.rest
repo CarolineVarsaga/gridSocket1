@@ -1,0 +1,9 @@
+POST 'http://localhost:3030/messages/send'
+Content-Type: application/json
+
+
+{
+    "content": "TEST"
+}
+
+###

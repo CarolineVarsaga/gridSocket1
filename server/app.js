@@ -1,18 +1,19 @@
 const app = require('express')();
-const server = require('http').createServer(app); 
+const server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
-    cors: {
-        origin: '*',
-        methods: ['GET', 'POST']
-    }
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST'],
+  },
 });
 
 app.get('/test', (req, res) => {
-    res.send('<h1>Socket</h1>')
-})
+  res.send('<h1>Socket</h1>');
+});
 
 io.on('connection', (socket) => {
+
     socket.emit('chat', 'Välkommen till chatten! Kom ihåg att alltid skriva snälla saker. :)')  
 
     socket.on('chat', (arg) => {
