@@ -9,7 +9,7 @@ const io = require('socket.io')(server, {
 });
 
 const mongoose = require('mongoose');
-const Message = require('../database/models/messageModel.js');
+// const Message = require('../database/models/messageModel.js');
 
 mongoose
   .connect(
