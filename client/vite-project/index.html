@@ -6,15 +6,33 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="main.js"></script>
-    <title>Vite App</title>
+    <title>Quacky Chat</title>
   </head>
+
   <body>
-    <input type="text" id="sendMessage" class="input-field">
-    <button id="sendBtn" class="send-btn">Skicka</button>
 
-    <ul id="chatList">
+    
+    <div class="join-container">
+      <input id="nameInput" class="name-input" type="text" placeholder="Vem är du?">
+      <button id="joinBtn" class="join-btn btn">Gå vidare</button>
+    </div>
 
-    </ul>
+    <div class="chatrooms-container">
+      <ul id="chatroomsList" class="chatrooms-list"></ul>
+    </div>
+
+    <div class="chat-container">       
+      <div id="chatBox" class="chat-box">
+        <ul class="chat-list" id="chatList"></ul>
+      </div>
+
+      <div class="send-message-container">
+        <input type="text" id="sendMessage" class="input-field" placeholder="Nytt chattmeddelande">
+        <button id="sendBtn" class="send-btn btn">Skicka</button>
+      </div>
+
+    </div>
     
   </body>
+  
 </html>

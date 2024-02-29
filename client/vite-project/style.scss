@@ -1,24 +1,5 @@
+@import './views/joinPage';
+@import './views/chatRoomsList';
+@import './views/chatRoom';
 
-.input-field {
-    height: 25px;
-    //border: none; 
-    border-radius: 5px;
-    border: 1px solid grey; 
-}
-
-.send-btn {
-    width: 120px;
-    height: 30px;
-    border-radius: 20px;
-    border-style: none;
-    background-color: #d9acfd;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #b98adf;
-    }
-}
-
-li {
-    list-style: none;
-}
+@import './assets/buttonStyle';

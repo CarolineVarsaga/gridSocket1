@@ -13,12 +13,14 @@ app.get('/test', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  socket.emit('chat', 'Hello world!');
 
-  socket.on('chat', (arg) => {
-    console.log('incoming chat', arg);
-    io.emit('chat', arg);
-  });
-});
+    socket.emit('chat', 'Välkommen till chatten! Kom ihåg att alltid skriva snälla saker. :)')  
 
-server.listen(process.env.PORT || '8080');
+    socket.on('chat', (arg) => {
+        console.log('incoming chat', arg);
+       // io.emit('chat', arg); 
+       socket.broadcast.emit('chat', arg); 
+    })
+})
+
+server.listen(process.env.PORT || '8080'); 
