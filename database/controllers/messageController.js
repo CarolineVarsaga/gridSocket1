@@ -2,7 +2,8 @@ const expressAsyncHandler = require('express-async-handler');
 const Message = require('../models/messageModel.js');
 
 const sendMessage = expressAsyncHandler(async (req, res) => {
-  const userId = req.session.userId;
+  // const userId = req.session.userId;
+  const userId = '65e0600ca74a54bacbfb46db';
   const { content } = req.body;
 
   try {
@@ -26,6 +27,7 @@ const sendMessage = expressAsyncHandler(async (req, res) => {
 
 const getMessages = expressAsyncHandler(async (req, res) => {
   const messages = await Message.find();
+  res.json(messages);
 });
 
-module.exports = { sendMessage };
+module.exports = { sendMessage, getMessages };
