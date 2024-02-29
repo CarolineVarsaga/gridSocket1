@@ -38,9 +38,11 @@ app.use(cors(corsOptions));
 
 app.use('/users', userRoutes);
 app.use('/messages', messageRoutes);
-app.use('/chatRooms', chatRoomRoutes);
+app.use('/rooms', chatRoomRoutes);
 
 app.listen(3030, () => {
   console.log(`Server is running on port 3030`);
-  mongoose.connect('mongodb://127.0.0.1:27017/chat');
+  mongoose.connect(
+    `mongodb+srv://jarileminaho:${process.env.DB_PW}@cluster0.rf4p1sc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+  );
 });

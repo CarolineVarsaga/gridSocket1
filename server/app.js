@@ -8,19 +8,40 @@ const io = require('socket.io')(server, {
   },
 });
 
+const mongoose = require('mongoose');
+const Message = require('../database/models/messageModel.js');
+
+mongoose
+  .connect(
+    'mongodb+srv://jarileminaho:PMc7xtzaX4yXKJM1@cluster0.rf4p1sc.mongodb.net/myDatabase?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
+
 app.get('/test', (req, res) => {
   res.send('<h1>Socket</h1>');
 });
 
 io.on('connection', (socket) => {
+  socket.emit(
+    'chat',
+    'Välkommen till chatten! Kom ihåg att alltid skriva snälla saker. :)'
+  );
 
-    socket.emit('chat', 'Välkommen till chatten! Kom ihåg att alltid skriva snälla saker. :)')  
+  socket.on('chat', async (arg) => {
+    console.log('incoming chat', arg);
 
-    socket.on('chat', (arg) => {
-        console.log('incoming chat', arg);
-       // io.emit('chat', arg); 
-       socket.broadcast.emit('chat', arg); 
-    })
-})
+    try {
+      const newMessage = new Message({ content: arg.message });
 
-server.listen(process.env.PORT || '8080'); 
+      await newMessage.save();
+      io.emit('chat', arg);
+      socket.broadcast.emit('chat', arg);
+    } catch (error) {
+      console.error('Error saving message:', error);
+    }
+  });
+});
+
+server.listen(process.env.PORT || '8080');
